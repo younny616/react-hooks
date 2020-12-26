@@ -1,18 +1,12 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import { useInput } from "./useInput/useInput";
 
 import "./styles.css";
 
-const useInput = initialValue => {
-    const [value, setValue] = useState(initialValue);
-    const onChange = event => {
-        console.log(event.target);
-    }
-    return {value, onChange};
-}
-
 const App = () => {
-    const name = useInput("Mr.");
+    const maxLen = value => !value.includes("@");
+    const name = useInput("Mr.", maxLen);
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>
